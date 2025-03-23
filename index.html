@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Babylon.js OBJ & GLTF Viewer</title>
+    
+    <!-- Babylon.js Library -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+
+    <style>
+      /* Reset Style */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #181818;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #renderCanvas {
+        width: 100vw;
+        height: 100vh;
+        display: block;
+      }
+
+      /* Deskripsi Model */
+      #modelInfo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Canvas Babylon.js -->
+    <canvas id="renderCanvas"></canvas>
+
+    <!-- Informasi Model -->
+    <div id="modelInfo">Model: Tulang Pergelangan Tangan</div>
+
+    <!-- Panggil script.js -->
+    <script src="script.js"></script>
+  </body>
+</html>
