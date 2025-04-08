@@ -3,8 +3,11 @@ const engine = new BABYLON.Engine(canvas, true);
 
 function createScene() {
   const scene = new BABYLON.Scene(engine);
+  scene.clearColor = new BABYLON.Color4(0.1, 0.1, 0.12, 1); // background gelap tapi soft
 
-  // Tambahkan kamera dan lampu
+
+
+  // Tambahkan kamera
   const camera = new BABYLON.ArcRotateCamera(
     "camera",
     Math.PI / 2,
@@ -14,14 +17,33 @@ function createScene() {
     scene
   );
   camera.attachControl(canvas, true);
-  const light = new BABYLON.HemisphericLight(
-    "light",
-    new BABYLON.Vector3(1, 1, 0),
-    scene
-  );
+
+// Lampu hemisferik putih terang
+const hemiLight = new BABYLON.HemisphericLight(
+  "hemiLight",
+  new BABYLON.Vector3(0, 1, 0),
+  scene
+);
+hemiLight.intensity = 1.2; // Lebih terang
+hemiLight.diffuse = new BABYLON.Color3(1, 1, 1); // Putih
+hemiLight.specular = new BABYLON.Color3(1, 1, 1);
+hemiLight.groundColor = new BABYLON.Color3(0.8, 0.8, 0.8); // cerah
+
+// Lampu directional putih terang dari kanan atas
+const dirLight = new BABYLON.DirectionalLight(
+  "dirLight",
+  new BABYLON.Vector3(-1, -2, -1),
+  scene
+);
+dirLight.position = new BABYLON.Vector3(5, 10, 5);
+dirLight.intensity = 1.5;
+dirLight.diffuse = new BABYLON.Color3(1, 1, 1); // putih
+dirLight.specular = new BABYLON.Color3(1, 1, 1);
+
 
   return scene;
 }
+
 
 const scene = createScene();
 
