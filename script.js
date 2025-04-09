@@ -29,7 +29,7 @@ hemiLight.diffuse = new BABYLON.Color3(1, 1, 1); // Putih
 hemiLight.specular = new BABYLON.Color3(1, 1, 1);
 hemiLight.groundColor = new BABYLON.Color3(0.8, 0.8, 0.8); // cerah
 
-// Lampu directional putih terang dari kanan atas
+// Lampu directional kuning terang dari kanan atas
 const dirLight = new BABYLON.DirectionalLight(
   "dirLight",
   new BABYLON.Vector3(-1, -2, -1),
@@ -37,10 +37,19 @@ const dirLight = new BABYLON.DirectionalLight(
 );
 dirLight.position = new BABYLON.Vector3(5, 10, 5);
 dirLight.intensity = 1.5;
-dirLight.diffuse = new BABYLON.Color3(1, 1, 1); // putih
+dirLight.diffuse = new BABYLON.Color3(1, 1, 0); // putih
 dirLight.specular = new BABYLON.Color3(1, 1, 1);
 
+// Lampu spotlight biru dari bawah
+const spotlight = new BABYLON.SpotLight("spotLight", 
+  new BABYLON.Vector3(0, -1, 0), // Posisi spotlight di bawah
+  new BABYLON.Vector3(0, 1, 0), // Arah spotlight ke atas
+  Math.PI / 3,                  
+  2,                            
+  scene);
 
+spotlight.diffuse = new BABYLON.Color3(0, 0.1, 1); // Warna biru terang
+spotlight.specular = new BABYLON.Color3(0, 0.1, 1); // Warna spekular biru terang
   return scene;
 }
 
